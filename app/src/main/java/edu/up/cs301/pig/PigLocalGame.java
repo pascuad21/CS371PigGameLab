@@ -14,12 +14,14 @@ import android.util.Log;
  * @version February 2016
  */
 public class PigLocalGame extends LocalGame {
+    protected PigGameState game;
 
     /**
      * This ctor creates a new game state
      */
     public PigLocalGame() {
         //TODO  You will implement this constructor
+        game = new PigGameState();
     }
 
     /**
@@ -28,7 +30,12 @@ public class PigLocalGame extends LocalGame {
     @Override
     protected boolean canMove(int playerIdx) {
         //TODO  You will implement this method
-        return false;
+        if(game.getIdOfTurn() == playerIdx){
+            return true
+        }
+        else {
+            return false;
+        }
     }
 
     /**
@@ -39,6 +46,10 @@ public class PigLocalGame extends LocalGame {
     @Override
     protected boolean makeMove(GameAction action) {
         //TODO  You will implement this method
+        if(action instanceof  PigHoldAction){
+           int currentPlayer = game.getIdOfTurn();
+           
+        }
         return false;
     }//makeMove
 
